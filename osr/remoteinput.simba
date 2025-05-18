@@ -97,6 +97,11 @@ begin
   EIOS_ReleaseClient(Self.EIOS);
 end;
 
+function TRemoteInput.HasFocus(): Boolean;
+begin
+  Result := EIOS_HasFocus(Self.EIOS);
+end;
+
 function TRemoteInput.GetImage(): TMufasaBitmap;
 var
   w,h: Int32;

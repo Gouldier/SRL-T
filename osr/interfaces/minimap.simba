@@ -1717,7 +1717,7 @@ begin
     ;
 end;
 
-procedure TRSMinimap.WaitMoving();
+procedure TRSMinimap.WaitMoving(MinShift: Integer = 500);
 var
   timeout, countdown: TCountDown;
   moving: Boolean;
@@ -1728,7 +1728,7 @@ begin
   countdown.timeout := GetTickCount() + Round(SRL.TruncatedGauss(2500, 3500));
 
   repeat
-    moving := Self.IsPlayerMoving();
+    moving := Self.IsPlayerMoving(MinShift);
 
     if moving then
       countdown.Restart();

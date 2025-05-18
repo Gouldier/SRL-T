@@ -607,4 +607,6 @@ begin
   ItemFinder.AddItemFilter('Lava scale', @TRSItemFinderCustomFilter.LavaScales);
   ItemFinder.AddItemFilter('Lava scale shard', @TRSItemFinderCustomFilter.LavaScales);
   ItemFinder.AddItemFilter('Dark essence block', @TRSItemFinderCustomFilter.DarkEss);
+  ItemFinder.AddItemFilter('Colossal pouch', @TRSItemFindercustomFilter.DarkEss); // Required for RuneLite Runecrafting plugin to show pouch essence count!
+  ItemFinder.AddItemFilter('26786', @TRSItemFindercustomFilter.DarkEss); // Required for RuneLite Runecrafting plugin to show pouch essence count!
 end;

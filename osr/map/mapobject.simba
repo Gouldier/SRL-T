@@ -1479,6 +1479,32 @@ begin
   bitmap.Free();
 end;
 
+procedure Debug(objs: TRSObjectV2Array); overload;
+var
+  bitmap: TMufasaBitmap;
+  i: Integer;
+begin
+  //{$IFNDEF SRL_DISABLE_REMOTEINPUT}
+  //if RSClient.DebugOnClient then
+  //begin
+  //  RSClient.Image().Clear();
+  //  obj._DrawRouter(RSClient.Image());
+  //  Exit;
+  //end;
+  //{$ENDIF}
+  bitmap.FromClient();
+
+  for i := Low(objs) to High(objs) do
+  begin
+    objs[i]._DrawRouter(bitmap);
+  end;
+
+  DisplayDebugImgWindow(bitmap.getWidth(), bitmap.getHeight());
+  DrawBitmapDebugImg(bitmap);
+  bitmap.Free();
+end;
+
+
 procedure Debug(npc: TRSNPCV2); overload;
 var
   bitmap: TMufasaBitmap;

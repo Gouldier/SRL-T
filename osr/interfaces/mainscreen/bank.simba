@@ -1046,22 +1046,25 @@ begin
       if item.Tab = 0 then WaitUntil(count <> Self.Items.Count(), 300, 3000);
 
     if not Self.FindItem(item.Item, box) then
-    begin
-      if item.Scroll = -1 then
-        item.Scroll := Self.FindItemScroll(item.Item);
+      Exit;
 
-      if Self.GetScrollPosition() <> item.Scroll then
-        Self.SetScrollPosition(item.Scroll);
-
-      if not Self.FindItem(item.Item, box) then
-      begin
-        item.Tab := -1;
-        item.Scroll := -1;
-        if attempts = 2 then
-          Exit;
-        Exit(Self.FindItem(item, box, attempts + 1));
-      end;
-    end;
+//    if not Self.FindItem(item.Item, box) then
+//    begin
+//      if item.Scroll = -1 then
+//        item.Scroll := Self.FindItemScroll(item.Item);
+//
+//      if Self.GetScrollPosition() <> item.Scroll then
+//        Self.SetScrollPosition(item.Scroll);
+//
+//      if not Self.FindItem(item.Item, box) then
+//      begin
+//        item.Tab := -1;
+//        item.Scroll := -1;
+//        if attempts = 2 then
+//          Exit;
+//        Exit(Self.FindItem(item, box, attempts + 1));
+//      end;
+//    end;
   end;
 
   if item.Tab = -1 then
